@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <style>
+            body {  
+                padding-top: 0px;
+            }
+            .form-control { 
+                margin-bottom: 10px;
+            }
+            .login-screen-bg {  
+                background-color: #EFEFEF;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-4 well well-sm col-md-offset-4">
+                    <legend><a href=""><i class="glyphicon glyphicon-globe"></i></a> Đăng ký thành viên!</legend>
+                    <form action="" method="post" class="form" role="form">
+                        <input class="form-control" name="name" placeholder="Họ tên" required="" autofocus="" type="text">
+                        <input class="form-control" name="yourphone" placeholder="Số điện thoại" type="tel">
+                        <input class="form-control" name="youraddress" placeholder="Địa chỉ" type="text">
+                        <input class="form-control" name="youremail" placeholder="Email" type="email">
+                        <input class="form-control" name="password" placeholder="Mật khẩu" type="password">
+                        <input class="form-control" name="retypepassword" placeholder="Nhập lại mật khẩu" type="password">
+                        <label for="">Ngày Sinh : </label><input class="form-control" name="birthday" placeholder="ngày sinh" type="date">
+                        <label>Giới tính </label><br>
+                        <label class="radio-inline"><input name="sex" id="inlineCheckbox1" value="male" type="radio">  Nam </label> 
+                        <label class="radio-inline"><input name="sex" id="inlineCheckbox2" value="female" type="radio"> Nữ </label>
+                        <br>
+                        <br>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit"> Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
