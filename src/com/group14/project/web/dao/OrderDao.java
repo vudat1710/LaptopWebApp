@@ -28,10 +28,6 @@ public class OrderDao {
 		return sessionFactory.getCurrentSession();
 	}
 	
-	public void saveUser(Order order) {
-		getSession().save(order);
-	}
-	
 	public Order getOrderByOrderID(int orderID) {
 		Criteria criteria = getSession().createCriteria(Order.class);
 		criteria.add(Restrictions.idEq(orderID));
@@ -40,8 +36,7 @@ public class OrderDao {
 	
 	public int getUserIdByOrderId(int orderID) {
 		Criteria criteria = getSession().createCriteria(Order.class)
-				.setProjection(Projections.projectionList())
-				.add((Criterion) Projections.property("userId"))
+				.setProjection(Projections.property("userId"))
 				.setResultTransformer(Transformers.aliasToBean(Order.class));
 		return (int) criteria.uniqueResult();
 	}
