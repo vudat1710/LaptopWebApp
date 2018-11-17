@@ -44,52 +44,48 @@
                     <div class="row"><h3>Danh sách đơn hàng</h3></div>
                     
                     <div class="row " >
-                        <h4>Tìm kiếm đơn hàng theo : </h4>
-                        <div class="col-md-3 col-sm-3 col-xs-12">
-                            <form class="form-inline" action="">
+                        <form class="form-inline" id="search-order-form" context-path="${pageContext.request.contextPath}">
+                        	<div class="col-md-3 col-sm-3 col-xs-12">
                                 <div class="form-group">
-                                    <label for="1">Mã Đơn hàng</label>
+                                    <label for="orderID">Mã Đơn hàng</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="1" name="order_id" placeholder="Nhập Mã đơn hàng">
-                                        <span class="input-group-btn"><button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button></span>
+                                        <input type="text" class="form-control" id="orderID" placeholder="Nhập Mã đơn hàng">
+                                        <!--  <span class="input-group-btn"><button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button></span>-->
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-12">
-                            <form class="form-inline" action="">
+                        	</div>
+                        	<div class="col-md-3 col-sm-3 col-xs-12">
                                 <div class="form-group">
-                                    <label for="1">Mã User</label>
+                                    <label for="userID">Mã User</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="1" name="order_id" placeholder="Nhập Mã đơn hàng">
-                                        <span class="input-group-btn"><button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button></span>
+                                        <input type="text" class="form-control" id="userID" placeholder="Nhập Mã người dùng">
+                                        <!--  <span class="input-group-btn"><button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button></span>-->
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-12">
-                            <form class="form-inline" action="">
+               		 		</div>
+                        	<div class="col-md-3 col-sm-3 col-xs-12">
                                 <div class="form-group">
-                                    <label for="1">Order Date</label>
+                                    <label for="orderDate">Order Date</label>
                                     <div class="input-group">
-                                        <input type="date" class="form-control" id="1" name="order_id" placeholder="Nhập Mã đơn hàng">
-                                        <span class="input-group-btn"><button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button></span>
+                                        <input type="date" class="form-control" id="orderDate" >
+                                        <!-- <span class="input-group-btn"><button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button></span> -->
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-12">
-                            <form class="form-inline" action="">
+                          
+                        	</div>
+                        	<div class="col-md-3 col-sm-3 col-xs-12">
                                 <div class="form-group">
-                                    <label for="1">Ship Date</label>
+                                    <label for="shipDate">Ship Date</label>
                                     <div class="input-group">
-                                        <input type="date" class="form-control" id="1" name="order_id" placeholder="Nhập Mã đơn hàng">
-                                        <span class="input-group-btn"><button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button></span>
+                                        <input type="date" class="form-control" id="shipDate" >
+                                        <button type="submit" class="btn btn-success" id="search-user-button">Tìm</button>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
+                           
+                        	</div>
+                       	</form>
                     </div>
+                    
                     <br>
 
                     <div class="row">

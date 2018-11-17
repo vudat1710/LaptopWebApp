@@ -42,13 +42,16 @@ public class OrderController {
 	public String viewOrders(HttpServletRequest request, Model model) throws ParseException {
 		if (request.getParameter("orderId") == null && request.getParameter("userId") == null
 				&& request.getParameter("orderDate") == null && request.getParameter("shipDate") == null) {
-			List<Order> orders = orderService.getOrderListByOffsetQuantity(0, 10);
+			List<Order> orders = orderService.getOrderListByOffsetQuantity(1, 10);
 			model.addAttribute("orders", orders);
-		}
-
-		if (request.getParameter("orderId") != null || request.getParameter("userId") != null ||
-				request.getParameter("orderDate") != null || request.getParameter("shipDate") != null) {
-			List<Order> orders = orderService.getOrderListBySearchElements(request.getParameter("orderId"), request.getParameter("userId"), request.getParameter("orderDate"), request.getParameter("shipDate"));
+		} else 
+		if (request.getParameter("orderId") != null || request.getParameter("userId") != null
+				|| request.getParameter("orderDate") != null || request.getParameter("shipDate") != null){
+			String orderID = request.getParameter("orderId");
+			String userID = request.getParameter("userId");
+			String orderDate = request.getParameter("orderDate");
+			String shipDate = request.getParameter("shipDate");
+			List<Order> orders = orderService.getOrderListBySearchElements(orderID, userID, orderDate, shipDate);
 			model.addAttribute("orders", orders);
 		}
 		return "viewOrder";

@@ -53,10 +53,10 @@ public class OrderDao {
 		if (!userID.isEmpty()) {
 			criteria.add(Restrictions.eq("userId",Integer.parseInt(userID)));
 		}
-		if (orderDate != null) {
+		if (!orderDate.isEmpty()) {
 			criteria.add(Restrictions.eq("orderDate", simpleDateFormat.parse(orderDate)));
 		}
-		if (shipDate != null) {
+		if (!shipDate.isEmpty()) {
 			criteria.add(Restrictions.eq("shipDate", simpleDateFormat.parse(shipDate)));
 		}
 		return criteria.list();
