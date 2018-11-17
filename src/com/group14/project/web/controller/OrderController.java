@@ -40,9 +40,28 @@ public class OrderController {
 	
 	@RequestMapping("/viewOrder")
 	public String viewOrders(HttpServletRequest request, Model model) throws ParseException {
+		if (request.getParameter("orderId") != null && request.getParameter("userId") != null &&
+				request.getParameter("orderDate") != null && request.getParameter("shipDate") != null) {
+		}
+		
+		if (request.getParameter("orderId") != null) {
+			String orderID = "";
+		}
 		int orderID = Integer.parseInt(request.getParameter("orderId"));
+		
+		if (request.getParameter("userId") != null) {
+			String userID = "";
+		}
 		int userID = Integer.parseInt(request.getParameter("userId"));
+		
+		if (request.getParameter("orderDate") != null) {
+			String orderDate = "";
+		}
 		Date orderDate = simpleDateFormat.parse(request.getParameter("orderDate"));
+		
+		if (request.getParameter("shipDate") != null) {
+			String shipDate = "";
+		}
 		Date shipDate = simpleDateFormat.parse(request.getParameter("shipDate"));
 		
 		List<Order> orders = orderService.getOrderListBySearchElements(Integer.toString(orderID), Integer.toString(userID), orderDate, shipDate);
