@@ -1,5 +1,6 @@
 package com.group14.project.web.service;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -33,7 +34,7 @@ public class OrderService {
 		return orderDao.getOrderByOrderID(orderID);
 	}
 	
-	public List<Order> getOrderListBySearchElements(String orderID, String userID, Date orderDate, Date shipDate) {
+	public List<Order> getOrderListBySearchElements(String orderID, String userID, String orderDate, String shipDate) throws ParseException {
 		return orderDao.getOrderListBySearchElements(orderID, userID, orderDate, shipDate);
 	}
 	

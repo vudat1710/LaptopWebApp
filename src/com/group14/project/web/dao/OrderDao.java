@@ -1,5 +1,7 @@
 package com.group14.project.web.dao;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -20,6 +22,8 @@ import com.group14.project.web.beans.Order;
 @Transactional
 @Component("orderDao")
 public class OrderDao {
+	private final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	
 	@Autowired
 	private SessionFactory sessionFactory;
 	
@@ -41,7 +45,7 @@ public class OrderDao {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Order> getOrderListBySearchElements(String orderID, String userID, Date orderDate, Date shipDate) {
+	public List<Order> getOrderListBySearchElements(String orderID, String userID, String orderDate, String shipDate) throws ParseException {
 		Criteria criteria = getSession().createCriteria(Order.class);
 		if (!orderID.isEmpty()) {
 			criteria.add(Restrictions.idEq(Integer.parseInt(orderID)));
@@ -50,10 +54,10 @@ public class OrderDao {
 			criteria.add(Restrictions.eq("userId",Integer.parseInt(userID)));
 		}
 		if (orderDate != null) {
-			criteria.add(Restrictions.eq("orderDate", orderDate));
+			criteria.add(Restrictions.eq("orderDate", simpleDateFormat.parse(orderDate)));
 		}
 		if (shipDate != null) {
-			criteria.add(Restrictions.eq("shipDate", shipDate));
+			criteria.add(Restrictions.eq("shipDate", simpleDateFormat.parse(shipDate)));
 		}
 		return criteria.list();
 	}
@@ -80,5 +84,11 @@ public class OrderDao {
 		criteria.add(Restrictions.idEq(orderID));
 		criteria.add(Restrictions.eq("userId", userID));
 		return criteria.uniqueResult() != null;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Order> getAllOrders() {
+		Criteria criteria = getSession().createCriteria(Order.class);
+		return criteria.list();
 	}
 }

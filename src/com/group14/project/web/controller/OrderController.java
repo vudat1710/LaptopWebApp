@@ -29,45 +29,28 @@ public class OrderController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping("/viewOrderDetail")
-	public String viewOrderDetail(HttpServletRequest request, Model model) {
-		String orderID = request.getParameter("orderId");
-		Order order = orderService.getOrderByOrderID(Integer.parseInt(orderID));
-		
-		model.addAttribute("order", order);
-		return "viewOrderDetail";
-	}
+//	@RequestMapping("/viewOrderDetail")
+//	public String viewOrderDetail(HttpServletRequest request, Model model) {
+//		String orderID = request.getParameter("orderId");
+//		Order order = orderService.getOrderByOrderID(Integer.parseInt(orderID));
+//		
+//		model.addAttribute("order", order);
+//		return "viewOrderDetail";
+//	}
 	
 	@RequestMapping("/viewOrder")
 	public String viewOrders(HttpServletRequest request, Model model) throws ParseException {
-		if (request.getParameter("orderId") != null && request.getParameter("userId") != null &&
-				request.getParameter("orderDate") != null && request.getParameter("shipDate") != null) {
+		if (request.getParameter("orderId") == null && request.getParameter("userId") == null
+				&& request.getParameter("orderDate") == null && request.getParameter("shipDate") == null) {
+			List<Order> orders = orderService.getOrderListByOffsetQuantity(0, 10);
+			model.addAttribute("orders", orders);
 		}
-		
-		if (request.getParameter("orderId") != null) {
-			String orderID = "";
+
+		if (request.getParameter("orderId") != null || request.getParameter("userId") != null ||
+				request.getParameter("orderDate") != null || request.getParameter("shipDate") != null) {
+			List<Order> orders = orderService.getOrderListBySearchElements(request.getParameter("orderId"), request.getParameter("userId"), request.getParameter("orderDate"), request.getParameter("shipDate"));
+			model.addAttribute("orders", orders);
 		}
-		int orderID = Integer.parseInt(request.getParameter("orderId"));
-		
-		if (request.getParameter("userId") != null) {
-			String userID = "";
-		}
-		int userID = Integer.parseInt(request.getParameter("userId"));
-		
-		if (request.getParameter("orderDate") != null) {
-			String orderDate = "";
-		}
-		Date orderDate = simpleDateFormat.parse(request.getParameter("orderDate"));
-		
-		if (request.getParameter("shipDate") != null) {
-			String shipDate = "";
-		}
-		Date shipDate = simpleDateFormat.parse(request.getParameter("shipDate"));
-		
-		List<Order> orders = orderService.getOrderListBySearchElements(Integer.toString(orderID), Integer.toString(userID), orderDate, shipDate);
-		
-		model.addAttribute("orders", orders);
-		
 		return "viewOrder";
 	}
 	

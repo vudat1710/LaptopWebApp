@@ -3,11 +3,11 @@ USE laptopDBTest;
 --
 -- Delete data from the table 'storage'
 --
-TRUNCATE TABLE storage;
+
 --
 -- Delete data from the table 'ordersdetail'
 --
-TRUNCATE TABLE ordersdetail;
+
 --
 -- Delete data from the table 'product'
 --
@@ -17,7 +17,7 @@ DELETE FROM product;
 --
 DELETE FROM `order`;
 --
--- Delete data from the table 'user'
+-- Delete data from th`order`e table 'user'
 --
 DELETE FROM user;
 --
@@ -118,7 +118,7 @@ INSERT INTO product(productId, productName, productDescription, supplierId, pric
 --
 -- Inserting data into table ordersdetail
 --
-INSERT INTO ordersdetail(orderId, productId, pricePerUnit, quantity) VALUES
+INSERT INTO ordersDetail(orderId, productId, pricePerUnit, quantity) VALUES
 (7, 'B00ZK1WUE0', 21972197, 2),
 (9, 'B00ZK1WUE0', 17185807, 2),
 (18, 'B00QOQ1400', 20325079, 7),
