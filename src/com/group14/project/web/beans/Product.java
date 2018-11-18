@@ -1,8 +1,6 @@
 package com.group14.project.web.beans;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -119,6 +117,14 @@ public class Product {
 
 	public void setHardDisk(String hardDisk) {
 		this.hardDisk = hardDisk;
+	}
+
+	public int getSupplierId() {
+		return supplierId;
+	}
+
+	public void setSupplierId(int supplierId) {
+		this.supplierId = supplierId;
 	}
 
 	@Override

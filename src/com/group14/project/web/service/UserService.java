@@ -24,4 +24,12 @@ public class UserService {
 	public List<User> searchUsersByUserIdUsernameName(String userId, String username, String name){
 		return userDao.searchUserByUserIdUsernameName(userId, username, name);
 	}
+	
+	public User getUserByUserId(int userId) {
+		return userDao.getUserByUserId(userId);
+	}
+	
+	public void updateUser(User user) {
+		userDao.updateUser(user);
+	}
 }

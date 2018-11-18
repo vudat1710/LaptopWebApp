@@ -2,21 +2,21 @@ package com.group14.project.web.dao;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
+
+import javax.persistence.criteria.CriteriaBuilder;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
-import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.group14.project.web.beans.Order;
+import com.group14.project.web.beans.OrderStatus;
 
 @Repository
 @Transactional
@@ -35,13 +35,6 @@ public class OrderDao {
 		Criteria criteria = getSession().createCriteria(Order.class);
 		criteria.add(Restrictions.idEq(orderID));
 		return (Order) criteria.uniqueResult();
-	}
-	
-	public int getUserIdByOrderId(int orderID) {
-		Criteria criteria = getSession().createCriteria(Order.class)
-				.setProjection(Projections.property("userId"))
-				.setResultTransformer(Transformers.aliasToBean(Order.class));
-		return (int) criteria.uniqueResult();
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -90,5 +83,9 @@ public class OrderDao {
 	public List<Order> getAllOrders() {
 		Criteria criteria = getSession().createCriteria(Order.class);
 		return criteria.list();
+	}
+	
+	public void updateOrder(Order order) {
+		getSession().update(order);
 	}
 }

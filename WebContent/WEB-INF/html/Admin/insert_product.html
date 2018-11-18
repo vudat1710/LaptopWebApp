@@ -20,7 +20,7 @@ and open the template in the editor.
     <body class="nav-md">
         <div class="container body">
             <div class="main_container">
-                <div class="col-md-3 left_col">
+                <div class="col-md-3 col-sm-3 col-xs-3 left_col">
                     <div class="left_col scroll-view">
                         <div class="navbar nav_title" style="border: 0;">
                            
@@ -54,6 +54,13 @@ and open the template in the editor.
                                             <li><a href="users.html">Quản lý người dùng</a></li>
                                             <li><a href="products.html">Quản lý sản phẩm</a></li>
                                             <li><a href="orders.html">Quản lý đơn hàng</a></li>
+                                        </ul>
+                                    </li>
+                                    
+                                    <li><a><i class="fa fa-bar-chart-o"></i> Báo cáo <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="#">Doanh số bán hàng</a></li>
+                                            <li><a href="#">Doanh thu</a></li>
                                         </ul>
                                     </li>
                                     
@@ -114,16 +121,17 @@ and open the template in the editor.
                                 <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="productName">Tên sản phẩm <span class="required">*</span>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-3" for="productName">Tên sản phẩm <span class="required">*</span>
                                         </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="productName" required="required" class="form-control col-md-7 col-xs-12">
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <input type="text" id="productName" required="required" class="form-control col-md-7 col-xs-7">
+                                            <small class="form-text text-muted">feedback</small>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="supplier">Nhà sản xuất <span class="required">*</span>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-3" for="supplier">Nhà sản xuất 
                                         </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
                                             <select name="supplier" id="supplier" class="form-control col-md-7 col-xs-12">
                                                 <option value="1">Dell</option>
                                                 <option value="2">Asus</option>
@@ -133,45 +141,45 @@ and open the template in the editor.
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="CPU" class="control-label col-md-3 col-sm-3 col-xs-12">CPU</label>
+                                        <label for="CPU" class="control-label col-md-3 col-sm-3 col-xs-3">CPU</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input id="CPU" class="form-control col-md-7 col-xs-12" type="text" name="CPU">
+                                            <input id="CPU" class="form-control col-md-7 col-xs-7" type="text" name="CPU">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="VGA" class="control-label col-md-3 col-sm-3 col-xs-12">VGA</label>
+                                        <label for="VGA" class="control-label col-md-3 col-sm-3 col-xs-3">VGA</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input id="VGA" class="form-control col-md-7 col-xs-12" type="text" name="VGA">
+                                            <input id="VGA" class="form-control col-md-7 col-xs-7" type="text" name="VGA">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="RAM" class="control-label col-md-3 col-sm-3 col-xs-12">RAM</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input id="RAM" class="form-control col-md-7 col-xs-12" type="text" name="RAM">
+                                            <input id="RAM" class="form-control col-md-7 col-xs-7" type="text" name="RAM">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="HarDisk" class="control-label col-md-3 col-sm-3 col-xs-12">HarDisk</label>
+                                        <label for="HarDisk" class="control-label col-md-3 col-sm-3 col-xs-3">HarDisk</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input id="HarDisk" class="form-control col-md-7 col-xs-12" type="text" name="HarDisk">
+                                            <input id="HarDisk" class="form-control col-md-7 col-xs-7" type="text" name="HarDisk">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="Price" class="control-label col-md-3 col-sm-3 col-xs-12">Giá</label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input id="Price" class="form-control col-md-7 col-xs-12" type="text" name="Price">
+                                        <label for="Price" class="control-label col-md-3 col-sm-3 col-xs-3">Giá</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <input id="Price" class="form-control col-md-7 col-xs-7" type="text" name="Price">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Mô tả sản phẩm <span class="required">*</span>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-3">Mô tả sản phẩm <span class="required">*</span>
                                         </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input id="description" class="form-control col-md-7 col-xs-12" type="text" name="description">
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <input id="description" class="form-control col-md-7 col-xs-7" type="text" name="description">
                                         </div>
                                     </div>
                                     <div class="ln_solid"></div>
                                     <div class="form-group">
-                                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                        <div class="col-md-6 col-sm-6 col-xs-6 col-md-offset-3">
                                             <button class="btn btn-primary" type="reset">Reset</button>
                                             <button type="submit" class="btn btn-success">Thêm sản phẩm</button>
                                         </div>

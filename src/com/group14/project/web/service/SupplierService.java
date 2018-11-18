@@ -16,4 +16,12 @@ public class SupplierService {
 	public List<Supplier> getAllSuppliers() {
 		return supplierDao.getAllSuppliers();
 	}
+	
+	public void addSupplier(Supplier supplier) {
+		supplierDao.addSupplier(supplier);
+	}
+	
+	public Supplier getSupplierBySupplierId(int supplierId) {
+		return supplierDao.getSupplierBySupplierId(supplierId);
+	}
 }

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import com.group14.project.web.beans.OrdersDetail;
+import com.group14.project.web.model.OrdersDetailModel;
 
 @Repository
 @Transactional
@@ -29,4 +30,11 @@ public class OrdersDetailDao {
 		criteria.add(Restrictions.eq("orderId", orderID));
 		return criteria.list();
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<OrdersDetail> getAllOrderDetail() {
+		Criteria criteria = getSession().createCriteria(OrdersDetailModel.class);
+		return criteria.list();
+	}
+
 }

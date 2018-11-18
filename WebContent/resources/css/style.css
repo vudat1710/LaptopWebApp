@@ -7,3 +7,14 @@ body {
 .login-screen-bg {  
     background-color: #EFEFEF;
 }
+
+/* table */
+
+td {
+    vertical-align: middle !important;
+}
+
+.fa-edit:hover{
+    cursor: pointer;
+}
+

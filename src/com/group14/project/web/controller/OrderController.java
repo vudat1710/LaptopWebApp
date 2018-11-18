@@ -13,30 +13,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.group14.project.web.beans.Order;
-import com.group14.project.web.beans.User;
+import com.group14.project.web.beans.OrderStatus;
+import com.group14.project.web.model.OrdersDetailModel;
 import com.group14.project.web.service.OrderService;
-import com.group14.project.web.service.UserService;
-
 @Controller
 public class OrderController {
 	private final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-	
 	@Autowired
 	private OrderService orderService;
 	
-	@Autowired
-	private UserService userService;
+//	@Autowired
+//	private UserService userService;
 	
-//	@RequestMapping("/viewOrderDetail")
-//	public String viewOrderDetail(HttpServletRequest request, Model model) {
-//		String orderID = request.getParameter("orderId");
-//		Order order = orderService.getOrderByOrderID(Integer.parseInt(orderID));
-//		
-//		model.addAttribute("order", order);
-//		return "viewOrderDetail";
-//	}
+	@RequestMapping("/viewOrderDetail")
+	public String viewOrderDetail(HttpServletRequest request, Model model) {		
+		String orderID = request.getParameter("orderId");
+		OrdersDetailModel ordersDetailModels = orderService.getOrderDetailByOrderID(Integer.parseInt(orderID));
+		model.addAttribute("ordersDetailModels", ordersDetailModels);
+		return "viewOrderDetail";
+	}
 	
 	@RequestMapping("/viewOrder")
 	public String viewOrders(HttpServletRequest request, Model model) throws ParseException {
@@ -57,4 +55,22 @@ public class OrderController {
 		return "viewOrder";
 	}
 	
+	@RequestMapping("/viewUpdateOrder")
+	public String viewUpdateOrder()  {
+		return "viewUpdateOrder";
+	}
+	
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	public String update(HttpServletRequest request, Model model) throws ParseException {
+		String orderId = request.getParameter("orderId");
+		String shipDate = request.getParameter("shipDate");
+		String status = request.getParameter("status");
+		
+		Order order = orderService.getOrderByOrderID(Integer.parseInt(orderId));
+		order.setShipDate(simpleDateFormat.parse(shipDate));
+		order.setStatus(OrderStatus.valueOf(status))
+		
+		orderService.updateOrder(order);
+		return "viewUpdateOrder";
+	}
 }

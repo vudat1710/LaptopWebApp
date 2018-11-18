@@ -44,21 +44,21 @@
                     <div class="row"><h3>Danh sách đơn hàng</h3></div>
                     
                     <div class="row " >
-                        <form class="form-inline" id="search-order-form" context-path="${pageContext.request.contextPath}">
+                        <form class="form-inline" id="search-order-form" action="${pageContext.request.contextPath}/viewOrder" method = "get">
                         	<div class="col-md-3 col-sm-3 col-xs-12">
                                 <div class="form-group">
-                                    <label for="orderID">Mã Đơn hàng</label>
+                                    <label for="orderId">Mã Đơn hàng</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="orderID" placeholder="Nhập Mã đơn hàng">
+                                        <input type="text" class="form-control" name="orderId" placeholder="Nhập Mã đơn hàng">
                                         <!--  <span class="input-group-btn"><button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button></span>-->
                                     </div>
                                 </div>
                         	</div>
                         	<div class="col-md-3 col-sm-3 col-xs-12">
                                 <div class="form-group">
-                                    <label for="userID">Mã User</label>
+                                    <label for="userId">Mã User</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="userID" placeholder="Nhập Mã người dùng">
+                                        <input type="text" class="form-control" name="userId" placeholder="Nhập Mã người dùng">
                                         <!--  <span class="input-group-btn"><button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button></span>-->
                                     </div>
                                 </div>
@@ -67,7 +67,7 @@
                                 <div class="form-group">
                                     <label for="orderDate">Order Date</label>
                                     <div class="input-group">
-                                        <input type="date" class="form-control" id="orderDate" >
+                                        <input type="date" class="form-control" name="orderDate" >
                                         <!-- <span class="input-group-btn"><button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button></span> -->
                                     </div>
                                 </div>
@@ -77,8 +77,8 @@
                                 <div class="form-group">
                                     <label for="shipDate">Ship Date</label>
                                     <div class="input-group">
-                                        <input type="date" class="form-control" id="shipDate" >
-                                        <button type="submit" class="btn btn-success" id="search-user-button">Tìm</button>
+                                        <input type="date" class="form-control" name="shipDate" >
+                                        <button type="submit" class="btn btn-primary" id="search-order-button">Tìm</button>
                                     </div>
                                 </div>
                            
@@ -121,7 +121,7 @@
                                             <td class=" "><fmt:formatDate value="${order.shipDate }" pattern="yyyy-MM-dd"/></td>
                
                                             <td class=" ">${order.status }</td>
-                                            <td class=" last"><a href="update_order.html">Update</a> | <a href="order_detail.html">Detail</a></td>
+                                            <td class=" last"><a href="viewUpdateOrder?orderId=${order.orderId }">Update</a> | <a href="viewOrderDetail?orderId=${order.orderId }">Detail</a></td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>

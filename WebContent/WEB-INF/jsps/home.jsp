@@ -9,7 +9,7 @@
 	<title>Home</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
-    crossorigin="anonymous">
+	 crossorigin="anonymous">
 </head>
 
 <body>
@@ -22,8 +22,9 @@
 					<h4>FILTER BY BRAND</h4>
 				</li>
 				<c:forEach var="supplier" items="${supplierList }">
-                	<a href="${pageContext.request.contextPath }/viewProductBySupplier?supplierId=${supplier.supplierId}" class="list-group-item list-group-item-action">${supplier.supplierBrand }</a>
-                </c:forEach>
+					<a href="${pageContext.request.contextPath }/viewProductBySupplier?supplierId=${supplier.supplierId}&&page=0"
+					 class="list-group-item list-group-item-action">${supplier.supplierBrand }</a>
+				</c:forEach>
 
 			</ul>
 			<!-- Product-->
@@ -48,13 +49,13 @@
 		</div>
 
 		<!-- Page -->
-		<ul class="pagination col justify-content-end" style="padding: 20px 20px">
+		<!-- <ul class="pagination col justify-content-end" style="padding: 20px 20px">
 			<li class="page-item"><a class="page-link" href="#">Previous</a></li>
 			<li class="page-item active"><a class="page-link" href="#">1</a></li>
 			<li class="page-item"><a class="page-link" href="#">2</a></li>
 			<li class="page-item"><a class="page-link" href="#">3</a></li>
 			<li class="page-item"><a class="page-link" href="#">Next</a></li>
-		</ul>
+		</ul> -->
 	</div>
 	<jsp:include page="footer.jsp"></jsp:include>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

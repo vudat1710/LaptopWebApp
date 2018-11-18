@@ -16,11 +16,18 @@ and open the template in the editor.
 
         <!-- Custom Theme Style -->
         <link href="../build/css/custom.min.css" rel="stylesheet">
+        <style type="text/css">
+            @media (max-width: 1440px) and (min-width: 700px){
+                label{
+                    width: 100%;
+                }
+            }
+        </style>
     </head>
     <body class="nav-md">
         <div class="container body">
             <div class="main_container">
-                <div class="col-md-3 left_col">
+                <div class="col-md-3 col-sm-3 col-xs-3 left_col">
                     <div class="left_col scroll-view">
                         <div class="navbar nav_title" style="border: 0;">
                             
@@ -56,7 +63,14 @@ and open the template in the editor.
                                             <li><a href="orders.html">Quản lý đơn hàng</a></li>
                                         </ul>
                                     </li>
-  
+
+                                    <li><a><i class="fa fa-bar-chart-o"></i> Báo cáo <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="#">Doanh số bán hàng</a></li>
+                                            <li><a href="#">Doanh thu</a></li>
+                                        </ul>
+                                    </li>
+                                    
                                     <li><a><i class="fa fa-user"></i> Tài khoản <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
                                             <li><a href="update_ProfileAdmin.html">Thay đổi thông tin</a></li>
@@ -111,30 +125,38 @@ and open the template in the editor.
                         <div class="row"><a href="insert_suppliers.html" class="btn btn-primary">Thêm sản phẩm mới</a></div>
                         <div class="row " >
                             <h4>Tìm kiếm sản phẩm theo : </h4>
-                            <div class="col-md-4">
-                                <form class="form-inline">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <form class="form-inline" action="">
                                     <div class="form-group">
-                                        <label for="usr">ID:</label>
-                                        <input type="text" class="form-control" id="usr">
-                                        <button type="submit" class="btn btn-success">Tìm</button>
+                                        <label for="1">Mã sản phẩm</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="1" name="product_id" placeholder="Nhập productID">
+                                            <span class="input-group-btn"><button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button></span>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
-                            <div class="col-md-4">
-                                <form class="form-inline">
+                            
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <form class="form-inline" action="">
                                     <div class="form-group">
-                                        <label for="usr">Tên Product:</label>
-                                        <input type="text" class="form-control" id="usr">
-                                        <button type="submit" class="btn btn-success">Tìm</button>
+                                        <label for="1">Tên sản phẩm</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="1" name="product_name" placeholder="Nhập ProductName">
+                                            <span class="input-group-btn"><button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button></span>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
-                            <div class="col-md-4">
-                                <form class="form-inline">
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <form class="form-inline" action="">
                                     <div class="form-group">
-                                        <label for="usr">NSX:</label>
-                                        <input type="text" class="form-control" id="usr">
-                                        <button type="submit" class="btn btn-success">Tìm</button>
+                                        <label for="1">Nhà cung cấp</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="1" name="supplier_name" placeholder="Nhập supplierName">
+                                            <span class="input-group-btn"><button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button></span>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -143,7 +165,7 @@ and open the template in the editor.
 
                         <div class="row">
                             <div class="table-responsive">
-                                <table class="table table-striped jambo_table bulk_action">
+                                <table id="datatable" class="table table-striped jambo_table bulk_action">
                                     <thead>
                                         <tr class="headings">
                                             
@@ -222,6 +244,343 @@ and open the template in the editor.
                                             <td class=" ">Đẳng cấp chất lượng cao</td>
                                             <td class=" last"><a href="update_product.html">Update</a></td>
                                         </tr>
+                                        <tr class="even pointer">
+                                            
+                                            <td class=" ">1</td>
+                                            <td class=" ">1 </td>
+                                            <td class=" ">Dell Insprision </td>
+                                            <td class=" ">Dell</td>
+                                            <td class=" ">i5 7200U</td>
+                                            <td class=" ">NIVIDA</td>
+                                            <td class=" ">4GB - DRR4 </td>
+                                            <td class=" ">HDD 1TB</td>
+                                            <td class=" ">15000000</td>
+                                            <td class=" ">Đẳng cấp chất lượng cao</td>
+                                            <td class=" last"><a href="update_product.html">Update</a></td>
+                                        </tr>
+                                        <tr class="even pointer">
+                                            
+                                            <td class=" ">1</td>
+                                            <td class=" ">1 </td>
+                                            <td class=" ">Dell Insprision </td>
+                                            <td class=" ">Dell</td>
+                                            <td class=" ">i5 7200U</td>
+                                            <td class=" ">NIVIDA</td>
+                                            <td class=" ">4GB - DRR4 </td>
+                                            <td class=" ">HDD 1TB</td>
+                                            <td class=" ">15000000</td>
+                                            <td class=" ">Đẳng cấp chất lượng cao</td>
+                                            <td class=" last"><a href="update_product.html">Update</a></td>
+                                        </tr>
+                                        <tr class="even pointer">
+                                            
+                                            <td class=" ">1</td>
+                                            <td class=" ">1 </td>
+                                            <td class=" ">Dell Insprision </td>
+                                            <td class=" ">Dell</td>
+                                            <td class=" ">i5 7200U</td>
+                                            <td class=" ">NIVIDA</td>
+                                            <td class=" ">4GB - DRR4 </td>
+                                            <td class=" ">HDD 1TB</td>
+                                            <td class=" ">15000000</td>
+                                            <td class=" ">Đẳng cấp chất lượng cao</td>
+                                            <td class=" last"><a href="update_product.html">Update</a></td>
+                                        </tr>
+                                        <tr class="even pointer">
+                                            
+                                            <td class=" ">1</td>
+                                            <td class=" ">1 </td>
+                                            <td class=" ">Dell Insprision </td>
+                                            <td class=" ">Dell</td>
+                                            <td class=" ">i5 7200U</td>
+                                            <td class=" ">NIVIDA</td>
+                                            <td class=" ">4GB - DRR4 </td>
+                                            <td class=" ">HDD 1TB</td>
+                                            <td class=" ">15000000</td>
+                                            <td class=" ">Đẳng cấp chất lượng cao</td>
+                                            <td class=" last"><a href="update_product.html">Update</a></td>
+                                        </tr>
+                                        <tr class="even pointer">
+                                            
+                                            <td class=" ">1</td>
+                                            <td class=" ">1 </td>
+                                            <td class=" ">Dell Insprision </td>
+                                            <td class=" ">Dell</td>
+                                            <td class=" ">i5 7200U</td>
+                                            <td class=" ">NIVIDA</td>
+                                            <td class=" ">4GB - DRR4 </td>
+                                            <td class=" ">HDD 1TB</td>
+                                            <td class=" ">15000000</td>
+                                            <td class=" ">Đẳng cấp chất lượng cao</td>
+                                            <td class=" last"><a href="update_product.html">Update</a></td>
+                                        </tr>
+                                        <tr class="even pointer">
+                                            
+                                            <td class=" ">1</td>
+                                            <td class=" ">1 </td>
+                                            <td class=" ">Dell Insprision </td>
+                                            <td class=" ">Dell</td>
+                                            <td class=" ">i5 7200U</td>
+                                            <td class=" ">NIVIDA</td>
+                                            <td class=" ">4GB - DRR4 </td>
+                                            <td class=" ">HDD 1TB</td>
+                                            <td class=" ">15000000</td>
+                                            <td class=" ">Đẳng cấp chất lượng cao</td>
+                                            <td class=" last"><a href="update_product.html">Update</a></td>
+                                        </tr>
+                                        <tr class="even pointer">
+                                            
+                                            <td class=" ">1</td>
+                                            <td class=" ">1 </td>
+                                            <td class=" ">Dell Insprision </td>
+                                            <td class=" ">Dell</td>
+                                            <td class=" ">i5 7200U</td>
+                                            <td class=" ">NIVIDA</td>
+                                            <td class=" ">4GB - DRR4 </td>
+                                            <td class=" ">HDD 1TB</td>
+                                            <td class=" ">15000000</td>
+                                            <td class=" ">Đẳng cấp chất lượng cao</td>
+                                            <td class=" last"><a href="update_product.html">Update</a></td>
+                                        </tr>
+                                        <tr class="even pointer">
+                                            
+                                            <td class=" ">1</td>
+                                            <td class=" ">1 </td>
+                                            <td class=" ">Dell Insprision </td>
+                                            <td class=" ">Dell</td>
+                                            <td class=" ">i5 7200U</td>
+                                            <td class=" ">NIVIDA</td>
+                                            <td class=" ">4GB - DRR4 </td>
+                                            <td class=" ">HDD 1TB</td>
+                                            <td class=" ">15000000</td>
+                                            <td class=" ">Đẳng cấp chất lượng cao</td>
+                                            <td class=" last"><a href="update_product.html">Update</a></td>
+                                        </tr>
+                                        <tr class="even pointer">
+                                            
+                                            <td class=" ">1</td>
+                                            <td class=" ">1 </td>
+                                            <td class=" ">Dell Insprision </td>
+                                            <td class=" ">Dell</td>
+                                            <td class=" ">i5 7200U</td>
+                                            <td class=" ">NIVIDA</td>
+                                            <td class=" ">4GB - DRR4 </td>
+                                            <td class=" ">HDD 1TB</td>
+                                            <td class=" ">15000000</td>
+                                            <td class=" ">Đẳng cấp chất lượng cao</td>
+                                            <td class=" last"><a href="update_product.html">Update</a></td>
+                                        </tr>
+                                        <tr class="even pointer">
+                                            
+                                            <td class=" ">1</td>
+                                            <td class=" ">1 </td>
+                                            <td class=" ">Dell Insprision </td>
+                                            <td class=" ">Dell</td>
+                                            <td class=" ">i5 7200U</td>
+                                            <td class=" ">NIVIDA</td>
+                                            <td class=" ">4GB - DRR4 </td>
+                                            <td class=" ">HDD 1TB</td>
+                                            <td class=" ">15000000</td>
+                                            <td class=" ">Đẳng cấp chất lượng cao</td>
+                                            <td class=" last"><a href="update_product.html">Update</a></td>
+                                        </tr>
+                                        <tr class="even pointer">
+                                            
+                                            <td class=" ">1</td>
+                                            <td class=" ">1 </td>
+                                            <td class=" ">Dell Insprision </td>
+                                            <td class=" ">Dell</td>
+                                            <td class=" ">i5 7200U</td>
+                                            <td class=" ">NIVIDA</td>
+                                            <td class=" ">4GB - DRR4 </td>
+                                            <td class=" ">HDD 1TB</td>
+                                            <td class=" ">15000000</td>
+                                            <td class=" ">Đẳng cấp chất lượng cao</td>
+                                            <td class=" last"><a href="update_product.html">Update</a></td>
+                                        </tr>
+                                        <tr class="even pointer">
+                                            
+                                            <td class=" ">1</td>
+                                            <td class=" ">1 </td>
+                                            <td class=" ">Dell Insprision </td>
+                                            <td class=" ">Dell</td>
+                                            <td class=" ">i5 7200U</td>
+                                            <td class=" ">NIVIDA</td>
+                                            <td class=" ">4GB - DRR4 </td>
+                                            <td class=" ">HDD 1TB</td>
+                                            <td class=" ">15000000</td>
+                                            <td class=" ">Đẳng cấp chất lượng cao</td>
+                                            <td class=" last"><a href="update_product.html">Update</a></td>
+                                        </tr>
+                                        <tr class="even pointer">
+                                            
+                                            <td class=" ">1</td>
+                                            <td class=" ">1 </td>
+                                            <td class=" ">Dell Insprision </td>
+                                            <td class=" ">Dell</td>
+                                            <td class=" ">i5 7200U</td>
+                                            <td class=" ">NIVIDA</td>
+                                            <td class=" ">4GB - DRR4 </td>
+                                            <td class=" ">HDD 1TB</td>
+                                            <td class=" ">15000000</td>
+                                            <td class=" ">Đẳng cấp chất lượng cao</td>
+                                            <td class=" last"><a href="update_product.html">Update</a></td>
+                                        </tr>
+                                        <tr class="even pointer">
+                                            
+                                            <td class=" ">1</td>
+                                            <td class=" ">1 </td>
+                                            <td class=" ">Dell Insprision </td>
+                                            <td class=" ">Dell</td>
+                                            <td class=" ">i5 7200U</td>
+                                            <td class=" ">NIVIDA</td>
+                                            <td class=" ">4GB - DRR4 </td>
+                                            <td class=" ">HDD 1TB</td>
+                                            <td class=" ">15000000</td>
+                                            <td class=" ">Đẳng cấp chất lượng cao</td>
+                                            <td class=" last"><a href="update_product.html">Update</a></td>
+                                        </tr>
+                                        <tr class="even pointer">
+                                            
+                                            <td class=" ">1</td>
+                                            <td class=" ">1 </td>
+                                            <td class=" ">Dell Insprision </td>
+                                            <td class=" ">Dell</td>
+                                            <td class=" ">i5 7200U</td>
+                                            <td class=" ">NIVIDA</td>
+                                            <td class=" ">4GB - DRR4 </td>
+                                            <td class=" ">HDD 1TB</td>
+                                            <td class=" ">15000000</td>
+                                            <td class=" ">Đẳng cấp chất lượng cao</td>
+                                            <td class=" last"><a href="update_product.html">Update</a></td>
+                                        </tr>
+                                        <tr class="even pointer">
+                                            
+                                            <td class=" ">1</td>
+                                            <td class=" ">1 </td>
+                                            <td class=" ">Dell Insprision </td>
+                                            <td class=" ">Dell</td>
+                                            <td class=" ">i5 7200U</td>
+                                            <td class=" ">NIVIDA</td>
+                                            <td class=" ">4GB - DRR4 </td>
+                                            <td class=" ">HDD 1TB</td>
+                                            <td class=" ">15000000</td>
+                                            <td class=" ">Đẳng cấp chất lượng cao</td>
+                                            <td class=" last"><a href="update_product.html">Update</a></td>
+                                        </tr>
+                                        <tr class="even pointer">
+                                            
+                                            <td class=" ">1</td>
+                                            <td class=" ">1 </td>
+                                            <td class=" ">Dell Insprision </td>
+                                            <td class=" ">Dell</td>
+                                            <td class=" ">i5 7200U</td>
+                                            <td class=" ">NIVIDA</td>
+                                            <td class=" ">4GB - DRR4 </td>
+                                            <td class=" ">HDD 1TB</td>
+                                            <td class=" ">15000000</td>
+                                            <td class=" ">Đẳng cấp chất lượng cao</td>
+                                            <td class=" last"><a href="update_product.html">Update</a></td>
+                                        </tr>
+                                        <tr class="even pointer">
+                                            
+                                            <td class=" ">1</td>
+                                            <td class=" ">1 </td>
+                                            <td class=" ">Dell Insprision </td>
+                                            <td class=" ">Dell</td>
+                                            <td class=" ">i5 7200U</td>
+                                            <td class=" ">NIVIDA</td>
+                                            <td class=" ">4GB - DRR4 </td>
+                                            <td class=" ">HDD 1TB</td>
+                                            <td class=" ">15000000</td>
+                                            <td class=" ">Đẳng cấp chất lượng cao</td>
+                                            <td class=" last"><a href="update_product.html">Update</a></td>
+                                        </tr>
+                                        <tr class="even pointer">
+                                            
+                                            <td class=" ">1</td>
+                                            <td class=" ">1 </td>
+                                            <td class=" ">Dell Insprision </td>
+                                            <td class=" ">Dell</td>
+                                            <td class=" ">i5 7200U</td>
+                                            <td class=" ">NIVIDA</td>
+                                            <td class=" ">4GB - DRR4 </td>
+                                            <td class=" ">HDD 1TB</td>
+                                            <td class=" ">15000000</td>
+                                            <td class=" ">Đẳng cấp chất lượng cao</td>
+                                            <td class=" last"><a href="update_product.html">Update</a></td>
+                                        </tr>
+                                        <tr class="even pointer">
+                                            
+                                            <td class=" ">1</td>
+                                            <td class=" ">1 </td>
+                                            <td class=" ">Dell Insprision </td>
+                                            <td class=" ">Dell</td>
+                                            <td class=" ">i5 7200U</td>
+                                            <td class=" ">NIVIDA</td>
+                                            <td class=" ">4GB - DRR4 </td>
+                                            <td class=" ">HDD 1TB</td>
+                                            <td class=" ">15000000</td>
+                                            <td class=" ">Đẳng cấp chất lượng cao</td>
+                                            <td class=" last"><a href="update_product.html">Update</a></td>
+                                        </tr>
+                                        <tr class="even pointer">
+                                            
+                                            <td class=" ">1</td>
+                                            <td class=" ">1 </td>
+                                            <td class=" ">Dell Insprision </td>
+                                            <td class=" ">Dell</td>
+                                            <td class=" ">i5 7200U</td>
+                                            <td class=" ">NIVIDA</td>
+                                            <td class=" ">4GB - DRR4 </td>
+                                            <td class=" ">HDD 1TB</td>
+                                            <td class=" ">15000000</td>
+                                            <td class=" ">Đẳng cấp chất lượng cao</td>
+                                            <td class=" last"><a href="update_product.html">Update</a></td>
+                                        </tr>
+                                        <tr class="even pointer">
+                                            
+                                            <td class=" ">1</td>
+                                            <td class=" ">1 </td>
+                                            <td class=" ">Dell Insprision </td>
+                                            <td class=" ">Dell</td>
+                                            <td class=" ">i5 7200U</td>
+                                            <td class=" ">NIVIDA</td>
+                                            <td class=" ">4GB - DRR4 </td>
+                                            <td class=" ">HDD 1TB</td>
+                                            <td class=" ">15000000</td>
+                                            <td class=" ">Đẳng cấp chất lượng cao</td>
+                                            <td class=" last"><a href="update_product.html">Update</a></td>
+                                        </tr>
+                                        <tr class="even pointer">
+                                            
+                                            <td class=" ">1</td>
+                                            <td class=" ">1 </td>
+                                            <td class=" ">Dell Insprision </td>
+                                            <td class=" ">Dell</td>
+                                            <td class=" ">i5 7200U</td>
+                                            <td class=" ">NIVIDA</td>
+                                            <td class=" ">4GB - DRR4 </td>
+                                            <td class=" ">HDD 1TB</td>
+                                            <td class=" ">15000000</td>
+                                            <td class=" ">Đẳng cấp chất lượng cao</td>
+                                            <td class=" last"><a href="update_product.html">Update</a></td>
+                                        </tr>
+                                        <tr class="even pointer">
+                                            
+                                            <td class=" ">1</td>
+                                            <td class=" ">1 </td>
+                                            <td class=" ">Dell Insprision </td>
+                                            <td class=" ">Dell</td>
+                                            <td class=" ">i5 7200U</td>
+                                            <td class=" ">NIVIDA</td>
+                                            <td class=" ">4GB - DRR4 </td>
+                                            <td class=" ">HDD 1TB</td>
+                                            <td class=" ">15000000</td>
+                                            <td class=" ">Đẳng cấp chất lượng cao</td>
+                                            <td class=" last"><a href="update_product.html">Update</a></td>
+                                        </tr>
+
 
 
                                     </tbody>
@@ -247,6 +606,7 @@ and open the template in the editor.
         <script src="../vendors/jquery/dist/jquery.min.js"></script>
          <!--Bootstrap--> 
         <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
         <!-- Custom Theme Scripts -->
         <script src="../build/js/custom.min.js"></script>
     </body>

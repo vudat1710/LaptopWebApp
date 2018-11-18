@@ -20,7 +20,7 @@ and open the template in the editor.
     <body class="nav-md">
         <div class="container body">
             <div class="main_container">
-                <div class="col-md-3 left_col">
+                <div class="col-md-3 col-sm-3 col-xs-3 left_col">
                     <div class="left_col scroll-view">
                         <div class="navbar nav_title" style="border: 0;">
                            
@@ -54,6 +54,13 @@ and open the template in the editor.
                                             <li><a href="users.html">Quản lý người dùng</a></li>
                                             <li><a href="products.html">Quản lý sản phẩm</a></li>
                                             <li><a href="orders.html">Quản lý đơn hàng</a></li>
+                                        </ul>
+                                    </li>
+                                    
+                                    <li><a><i class="fa fa-bar-chart-o"></i> Báo cáo <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="#">Doanh số bán hàng</a></li>
+                                            <li><a href="#">Doanh thu</a></li>
                                         </ul>
                                     </li>
                                     
@@ -121,21 +128,21 @@ and open the template in the editor.
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="quantity" class="control-label col-md-3 col-sm-3 col-xs-12">Quantity</label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input id="quantity" class="form-control col-md-7 col-xs-12" type="text" name="quantity">
+                                        <label for="quantity" class="control-label col-md-3 col-sm-3 col-xs-3">Quantity</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <input id="quantity" class="form-control col-md-7 col-xs-7" type="text" name="quantity">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="importPrice" class="control-label col-md-3 col-sm-3 col-xs-12">Giá nhập vào</label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input id="importPrice" class="form-control col-md-7 col-xs-12" type="text" name="importPrice">
+                                        <label for="importPrice" class="control-label col-md-3 col-sm-3 col-xs-3">Giá nhập vào</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <input id="importPrice" class="form-control col-md-7 col-xs-7" type="text" name="importPrice">
                                         </div>
                                     </div>
                                     
                                     <div class="ln_solid"></div>
                                     <div class="form-group">
-                                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                        <div class="col-md-6 col-sm-6 col-xs-6 col-md-offset-3">
                                             <button class="btn btn-primary" type="reset">Reset</button>
                                             <button type="submit" class="btn btn-success">Nhập kho</button>
                                         </div>
@@ -165,5 +172,6 @@ and open the template in the editor.
          <!--Bootstrap--> 
         <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
         <!-- Custom Theme Scripts -->
+        <script src="../build/js/custom.min.js"></script>
     </body>
 </html>

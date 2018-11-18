@@ -45,7 +45,7 @@ public class CartController {
 		try {
 			if (isExisted != -1) {
 				if (noProductCanAdd - cart.getCartItemList().get(isExisted).getQuantity() >= quantity) {
-					cart.getCartItemList().get(isExisted).increaseQuantity(quantity);
+					cart.increaseQuantityByProductId(isExisted, productId, quantity);
 
 					ajaxResponse = mapper.writeValueAsString(cart);
 

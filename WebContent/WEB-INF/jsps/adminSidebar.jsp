@@ -11,7 +11,7 @@
                 <!-- menu profile quick info -->
                 <div class="profile clearfix">
                     <div class="profile_pic">
-                        <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                        <i class="fa fas-user fa-2x"></i>
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
@@ -31,16 +31,16 @@
                             </li>
                             <li><a><i class="fa fa-edit"></i> Quản lý <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="users.html">Quản lý người dùng</a></li>
-                                    <li><a href="products.html">Quản lý sản phẩm</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/admin/viewUsers">Quản lý người dùng</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/admin/viewProducts">Quản lý sản phẩm</a></li>
                                     <li><a href="orders.html">Quản lý đơn hàng</a></li>
                                 </ul>
                             </li>
 
                             <li><a><i class="fa fa-user"></i> Tài khoản <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="update_ProfileAdmin.html">Thay đổi thông tin</a></li>
-                                    <li><a href="login.html">Thoát</a></li>
+                                    <!-- <li><a href="update_ProfileAdmin.html">Thay đổi thông tin</a></li> -->
+                                    <li><a href="${pageContext.request.contextPath}/logout">Thoát</a></li>
                                 </ul>
                             </li>
 

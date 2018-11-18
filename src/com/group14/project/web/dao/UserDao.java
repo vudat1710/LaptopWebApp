@@ -50,4 +50,25 @@ public class UserDao {
 		}
 		return criteria.list();
 	}
+
+	public User getUserByUserId(String userId) {
+		Criteria criteria = getSession().createCriteria(User.class);
+		if (!userId.isEmpty()) {
+			criteria.add(Restrictions.idEq(Integer.parseInt(userId)));
+		}
+		return (User) criteria.uniqueResult();
+	}
+
+	public User getUserByUserId(int userId) {
+		Criteria criteria = getSession().createCriteria(User.class);
+		
+		criteria.add(Restrictions.idEq(userId));
+		
+		return (User) criteria.uniqueResult();
+	}
+	
+	public void updateUser(User user) {
+		getSession().update(user);
+	}
+
 }

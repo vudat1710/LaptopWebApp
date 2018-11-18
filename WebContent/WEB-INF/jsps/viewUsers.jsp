@@ -10,17 +10,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="${pageContext.request.contextPath}/resources/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
     <!-- Font Awesome -->
     <link href="${pageContext.request.contextPath}/resources/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
     <link href="${pageContext.request.contextPath}/resources/build/css/custom.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
 </head>
 
 <body class="nav-md">
     <div class="container body">
         <div class="main_container">
-            
+
             <jsp:include page="adminSidebar.jsp"></jsp:include>
 
             <!-- top navigation -->
@@ -72,7 +75,7 @@
                     <br>
                     <div class="row">
                         <div class="table-responsive">
-                            <table class="table table-striped jambo_table bulk_action">
+                            <table class="table table-striped jambo_table bulk_action" id="user-table">
                                 <thead>
                                     <tr class="headings">
                                         <th class="column-title">UserID </th>
@@ -120,7 +123,13 @@
     <!-- Custom Theme Scripts -->
     <script src="${pageContext.request.contextPath}/resources/build/js/custom.min.js"></script>
 
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+
     <script src="${pageContext.request.contextPath }/resources/javascript/script.js"></script>
+    <script>
+        $.fn.dataTable.ext.errMode = 'none';
+    </script>
 </body>
 
 </html>

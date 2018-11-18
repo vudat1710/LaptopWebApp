@@ -12,11 +12,20 @@ and open the template in the editor.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
     <!-- Font Awesome -->
     <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
+    <style type="text/css">
+        @media (max-width: 1440px) and (min-width: 750px) {
+            label {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body class="nav-md">
@@ -56,6 +65,13 @@ and open the template in the editor.
                                         <li><a href="users.html">Quản lý người dùng</a></li>
                                         <li><a href="products.html">Quản lý sản phẩm</a></li>
                                         <li><a href="orders.html">Quản lý đơn hàng</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a><i class="fa fa-bar-chart-o"></i> Báo cáo <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="#">Doanh số bán hàng</a></li>
+                                        <li><a href="#">Doanh thu</a></li>
                                     </ul>
                                 </li>
 
@@ -113,40 +129,45 @@ and open the template in the editor.
 
 
             <div class="">
-                <div class="right_col col" role="main">
+                <div class="right_col" role="main">
                     <div class="row">
                         <h3>Danh sách người dùng</h3>
                     </div>
                     <div class="row ">
-                        <form class="form-inline">
-                            <div class="col-md-4">
+                        <div class="col-md-4 col-sm-4">
+                            <form class="form-inline">
                                 <div class="form-group">
-                                    <label for="user-id-input">ID:</label>
-                                    <input type="text" class="form-control" id="user-id-input">
-                                    <!-- <button type="submit" class="btn btn-success">Tìm</button> -->
+                                    <label for="user_id">Tìm theo ID:</label>
+                                    <input type="text" class="form-control" id="user_id" name="">
+                                    <button type="submit" class="btn btn-success">Tìm</button>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
+                            </form>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <form class="form-inline">
                                 <div class="form-group">
-                                    <label for="username-input">Username:</label>
-                                    <input type="text" class="form-control" id="username-input">
-                                    <!-- <button type="submit" class="btn btn-success">Tìm</button> -->
+                                    <label for="user_name">Username:</label>
+                                    <input type="text" class="form-control" id="user_name" name="">
+                                    <button type="submit" class="btn btn-success">Tìm</button>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
+                            </form>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <form class="form-inline">
                                 <div class="form-group">
-                                    <label for="name-input">Tên:</label>
-                                    <input type="text" class="form-control" id="name-input">
+                                    <label for="name">Tìm theo Tên:</label>
+                                    <input type="text" class="form-control" id="name" name="">
+                                    <button type="submit" class="btn btn-success">Tìm</button>
                                 </div>
-                                <button type="submit" class="btn btn-success" id="search-user-button" context-path="${pageContext.request.contextPath}">Tìm</button>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                     <br>
 
+
                     <div class="row">
                         <div class="table-responsive">
-                            <table class="table table-striped jambo_table bulk_action">
+                            <table class="table table-striped jambo_table bulk_action" id="user-table">
                                 <thead>
                                     <tr class="headings">
 
@@ -160,10 +181,6 @@ and open the template in the editor.
                                         <th class="column-title">SĐT </th>
                                         <th class="column-title">Phân quyền </th>
                                         <th class="column-title no-link last"><span class="nobr">Action</span>
-                                        </th>
-                                        <th class="bulk-actions" colspan="7">
-                                            <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span
-                                                    class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
                                         </th>
                                     </tr>
                                 </thead>
@@ -180,7 +197,7 @@ and open the template in the editor.
                                         <td class=" ">Quảng Xương - Thanh Hóa </td>
                                         <td class=" ">0947060528</td>
                                         <td class=" ">ROLE_ADMIN</td>
-                                        <td class=" last"><a href="#">Edit Role</a> </td>
+                                        <td class=" last"><i class="fa fa-edit"></i></td>
                                     </tr>
                                     <tr class="odd pointer">
 
@@ -192,8 +209,13 @@ and open the template in the editor.
                                         <td class=" ">MALE</td>
                                         <td class=" ">Quảng Xương - Thanh Hóa </td>
                                         <td class=" ">0947060528</td>
-                                        <td class=" ">ROLE_ADMIN</td>
-                                        <td class=" "><a href="#">Edit Role</a>
+                                        <td class=" ">
+                                            <select class="form-control" name="authority" id="authority" disabled>
+                                                <option value="ROLE_ADMIN" selected>Admin</option>
+                                                <option value="ROLE_USER">User</option>
+                                            </select>
+                                        </td>
+                                        <td class=" "><i class="fa fa-edit"></i></a>
                                         </td>
                                     </tr>
                                     <tr class="even pointer">
@@ -207,7 +229,7 @@ and open the template in the editor.
                                         <td class=" ">Quảng Xương - Thanh Hóa </td>
                                         <td class=" ">0947060528</td>
                                         <td class=" ">ROLE_ADMIN</td>
-                                        <td class=" last"><a href="#">Edit Role</a>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
                                         </td>
                                     </tr>
                                     <tr class="odd pointer">
@@ -221,7 +243,399 @@ and open the template in the editor.
                                         <td class=" ">Quảng Xương - Thanh Hóa </td>
                                         <td class=" ">0947060528</td>
                                         <td class=" ">ROLE_ADMIN</td>
-                                        <td class=" last"><a href="#">Edit Role</a>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="even pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="even pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="even pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="even pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="even pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="even pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="even pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="even pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="even pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="even pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="even pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="even pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="even pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="even pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd pointer">
+
+                                        <td class=" ">1</td>
+                                        <td class=" ">nguyenphamvan </td>
+                                        <td class=" ">Phạm Văn Nguyên </i></td>
+                                        <td class=" ">nguyenphamvan@gmail.com</td>
+                                        <td class=" ">11-04-1998</td>
+                                        <td class=" ">MALE</td>
+                                        <td class=" ">Quảng Xương - Thanh Hóa </td>
+                                        <td class=" ">0947060528</td>
+                                        <td class=" ">ROLE_ADMIN</td>
+                                        <td class=" last"><i class="fa fa-edit"></i></a>
                                         </td>
                                     </tr>
 
@@ -232,17 +646,17 @@ and open the template in the editor.
                         </div>
                     </div>
                 </div>
+
+
+                <!-- footer content -->
+                <footer>
+                    <div class="pull-right">
+                        Website bán laptop
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>
+                <!-- /footer content -->
             </div>
-
-
-            <!-- footer content -->
-            <footer>
-                <div class="pull-right">
-                    Website bán laptop
-                </div>
-                <div class="clearfix"></div>
-            </footer>
-            <!-- /footer content -->
         </div>
     </div>
 
@@ -252,6 +666,10 @@ and open the template in the editor.
     <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+
+    <script src="../../../resources/javascript/script.js"></script>
 </body>
 
 </html>
