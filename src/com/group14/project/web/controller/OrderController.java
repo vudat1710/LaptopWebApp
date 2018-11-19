@@ -56,7 +56,10 @@ public class OrderController {
 	}
 	
 	@RequestMapping("/viewUpdateOrder")
-	public String viewUpdateOrder()  {
+	public String viewUpdateOrder(HttpServletRequest request, Model model)  {
+		int orderID = Integer.parseInt(request.getParameter("orderId"));
+		Order order = orderService.getOrderByOrderID(orderID);
+		model.addAttribute("order", order);
 		return "viewUpdateOrder";
 	}
 	
@@ -68,7 +71,7 @@ public class OrderController {
 		
 		Order order = orderService.getOrderByOrderID(Integer.parseInt(orderId));
 		order.setShipDate(simpleDateFormat.parse(shipDate));
-		order.setStatus(OrderStatus.valueOf(status))
+		order.setStatus(OrderStatus.valueOf(status));
 		
 		orderService.updateOrder(order);
 		return "viewUpdateOrder";

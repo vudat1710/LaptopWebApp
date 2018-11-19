@@ -41,7 +41,6 @@ public class ProductDao {
 	}
 	
 	@SuppressWarnings("unchecked")
-
 	public List<Product> getProductListByCategoryIdOffsetQuantity(int supplierId, int offset, int quantity){
 		Criteria criteria = getSession().createCriteria(Product.class);
 		criteria.add(Restrictions.eq("supplierId", supplierId));

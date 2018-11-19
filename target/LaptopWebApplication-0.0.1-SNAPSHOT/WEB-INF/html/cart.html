@@ -1,0 +1,199 @@
+<!-- Header -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Laptop Shop - Cart</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+    <div class="container">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="navbar-brand" href="#">
+            <img src="img/logo.jpg" alt="Logo" style="width: 40px;height: auto">
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <form class="form-inline" action="#" method="post">
+            <input class="form-control" type="text" placeholder="Search" required name="search" style="width: 500px">
+          </form>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Cart Logo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">User Logo</a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <!-- end header -->
+  <!-- Body -->
+  <div class="container">
+    <!-- Cart -->
+    <h3 style="text-align: center; padding-top: 80px" class="text-dark font-weight-bold">Your Cart</h3>
+    <table class="table table-hover" style="margin-top: 20px; margin-bottom: 20px">
+      <thead class="thead-dark">
+        <tr>
+          <th style="width:50%">Product</th>
+          <th style="width:15%">Price</th>
+          <th style="width:10%">Quantity</th>
+          <th style="width:15%" class="text-center">Subtotal</th>
+          <th style="width:10%"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-th="Product">
+            <div class="row">
+              <div class="col-sm-3"><img class="float-right img-fluid" src="img/product/laptop2.jpg"></div>
+              <div class="col-sm-9">
+                <h4 class="nomargin">Demo 1</h4>
+                <p>Core i7 Ram 8gb GTX 1060</p>
+              </div>
+            </div>
+          </td>
+          <td data-th="Price">100.000.000</td>
+          <td data-th="Quantity">
+            <div class="col-sm-offset-3"><input type="number" class="form-control text-center" value="1"></div>
+          </td>
+          <td data-th="Subtotal" class="text-center">100.000.000</td>
+          <td class="actions" data-th="" style="text-align: center">
+            <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td><a href="#" class="btn btn-warning">Continue Shopping</a></td>
+          <td colspan="2" class="hidden-xs"></td>
+          <td class="hidden-xs text-center"><strong>Total 100.000.000</strong></td>
+          <td><a href="#" class="btn btn-success btn-block">Checkout</a></td>
+        </tr>
+      </tfoot>
+    </table>
+
+
+
+    <!-- Action Buttons -->
+
+
+    <!--End Cart -->
+
+    <!-- Suggests -->
+    <div class="container" style="padding-bottom: 100px">
+      <h3 style="padding-top: 100px; padding-bottom: 30px">More laptops</h3>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="card" style="width:200px; margin: 20px 20px; border: none">
+            <img class="card-img-top" src="img/product/laptop2.jpg" alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title">Demo</h4>
+              <p class="card-text">100.000.000</p>
+              <a href="#" class="btn btn-primary btn-sm"><small>See More</small></a>
+              <a href="#" class="btn btn-warning btn-sm"><small>Add to Cart</small></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" style="width:200px; margin: 20px 20px; border: none">
+            <img class="card-img-top" src="img/product/laptop2.jpg" alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title">Demo</h4>
+              <p class="card-text">100.000.000</p>
+              <a href="#" class="btn btn-primary btn-sm"><small>See More</small></a>
+              <a href="#" class="btn btn-warning btn-sm"><small>Add to Cart</small></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" style="width:200px; margin: 20px 20px; border: none">
+            <img class="card-img-top" src="img/product/laptop2.jpg" alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title">Demo</h4>
+              <p class="card-text">100.000.000</p>
+              <a href="#" class="btn btn-primary btn-sm"><small>See More</small></a>
+              <a href="#" class="btn btn-warning btn-sm"><small>Add to Cart</small></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" style="width:200px; margin: 20px 20px; border: none">
+            <img class="card-img-top" src="img/product/laptop2.jpg" alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title">Demo</h4>
+              <p class="card-text">100.000.000</p>
+              <a href="#" class="btn btn-primary btn-sm"><small>See More</small></a>
+              <a href="#" class="btn btn-warning btn-sm"><small>Add to Cart</small></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- End body -->
+    <!-- Footer -->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <div class="container">
+        <div class="row">
+          <div class="navbar-nav">
+            <div class="col">
+              <ul class="list-group" style="border: none">
+                <li><b>Address</b></li>
+                <li>Vietnam</li>
+              </ul>
+            </div>
+            <div class="col">
+              <ul class="list-group" style="border: none">
+                <li><b>Contact</b></li>
+                <li>Tran Huu Tri</li>
+                <li>Le Tuan Thanh</li>
+                <li>Vu Tien Dat</li>
+                <li>Pham Van Nguyen</li>
+                <li>Nguyen Thi Hoai</li>
+              </ul>
+            </div>
+            <div class="col">
+              <ul class="list-group" style="border: none">
+                <li><b>Contact</b></li>
+                <li>Tran Huu Tri</li>
+                <li>Le Tuan Thanh</li>
+                <li>Vu Tien Dat</li>
+                <li>Pham Van Nguyen</li>
+                <li>Nguyen Thi Hoai</li>
+              </ul>
+            </div>
+            <br>
+
+          </div>
+        </div>
+        <p> Copyright NMCNPM_20181</p>
+      </div>
+    </nav>
+</body>
+
+</html>

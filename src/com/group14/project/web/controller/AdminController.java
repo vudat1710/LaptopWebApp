@@ -33,6 +33,11 @@ public class AdminController {
 
 	@Autowired
 	private ProductService productService;
+	
+	@RequestMapping("/")
+	public String viewAdminIndex() {
+		return "adminIndex";
+	}
 
 	@RequestMapping("/viewUsers")
 	public String viewUsers() {

@@ -88,4 +88,11 @@ public class OrderDao {
 	public void updateOrder(Order order) {
 		getSession().update(order);
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Order> getOrderListByUserId(int userId) {
+		Criteria criteria = getSession().createCriteria(Order.class);
+		criteria.add(Restrictions.eq("userId", userId));
+		return criteria.list();
+	}
 }

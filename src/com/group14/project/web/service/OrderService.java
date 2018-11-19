@@ -83,7 +83,20 @@ public class OrderService {
 		return ordersDetailModels;
 	}
 	
+//	public List<OrdersDetailModel> getOrderDetailListByOrderId(int orderID) {
+//		List<OrdersDetailModel> ordersDetailModels = new ArrayList<>();
+//		List<OrdersDetail> ordersDetails = ordersDetailDao.getOrderDetailByOrderID(orderID);
+//		for (OrdersDetail oDetail : ordersDetails) {
+//			OrdersDetailModel oModel = getOrderDetailByOrderID(orderID);
+//			ordersDetailModels.add();
+//		}
+//	}
+	
 	public void updateOrder(Order order) {
 		orderDao.updateOrder(order);
+	}
+	
+	public List<Order> getOrderListByUserId(int userId) {
+		return orderDao.getOrderListByUserId(userId);
 	}
 }
